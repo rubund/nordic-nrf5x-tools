@@ -1,0 +1,17 @@
+Source: nordic-nrf5x-tools
+Section: contrib/electronics
+Priority: optional
+Maintainer: Ruben Undheim <ruben.undheim@gmail.com>
+Build-Depends: debhelper (>= 9), po-debconf, txt2man
+Standards-Version: 3.9.8
+
+Package: nrf5x-mdk-gcc-installer
+Architecture: all
+Depends: ${misc:Depends}
+Description: Installer for the MDK used by nRF5x chips
+
+Package: nrf5x-cmd-line-tools-installer
+Architecture: amd64 i386
+Depends: ${misc:Depends}
+Description: Installer for nrfjprog and mergehex
+

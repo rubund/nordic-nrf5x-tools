@@ -1,0 +1,5 @@
+#!/bin/bash
+
+LD_LIBRARY_PATH=/usr/lib/nordic/command-line-tools/nrfjprog/
+
+/usr/lib/nordic/command-line-tools/nrfjprog/nrfjprog $*
