@@ -1,0 +1,2 @@
+for-postinst/default/Makefile usr/share/nrf5x-sdk-11-installer/
+for-postinst/default/nRF5_SDK_11.0.0_89a8197.zip.sha256 usr/share/nrf5x-sdk-11-installer/
