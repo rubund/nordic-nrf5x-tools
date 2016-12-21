@@ -11,6 +11,7 @@ CHANGELOG_DATE ?= $(shell date -d "`dpkg-parsechangelog --show-field Date`" +"%d
 
 MDK_GCC_VERSION 			= 8.11.1
 CMD_LINE_TOOLS_VERSION 		= 9.2.1
+S130_2_VERSION 		= 2.0.1
 S132_2_VERSION 		= 2.0.1
 S132_3_VERSION 		= 3.1.0
 S132_4_VERSION 		= 4.0.0.1~alpha
@@ -28,6 +29,7 @@ override_dh_auto_clean:
 override_dh_gencontrol:
 	dh_gencontrol -pnrf5x-mdk-gcc-installer -- -v$(MDK_GCC_VERSION)
 	dh_gencontrol -pnrf5x-cmd-line-tools-installer -- -v$(CMD_LINE_TOOLS_VERSION)
+	dh_gencontrol -pnrf5x-softdevice-s130-2-installer -- -v$(S130_2_VERSION)
 	dh_gencontrol -pnrf5x-softdevice-s132-2-installer -- -v$(S132_2_VERSION)
 	dh_gencontrol -pnrf5x-softdevice-s132-3-installer -- -v$(S132_3_VERSION)
 	dh_gencontrol -pnrf5x-softdevice-s132-4-installer -- -v$(S132_4_VERSION)
