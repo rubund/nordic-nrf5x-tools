@@ -15,3 +15,7 @@ Architecture: amd64 i386
 Depends: ${misc:Depends}
 Description: Installer for nrfjprog and mergehex
 
+Package: nrf5x-sdk-12-installer
+Architecture: all
+Depends: ${misc:Depends}
+Description: Installer for the MDK used by nRF5x chips
