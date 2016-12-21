@@ -1,3 +1,2 @@
-/usr/lib/nordic/softdevices/s132/3.1.0 /usr/lib/nordic/softdevices/s132/3
-/usr/lib/nordic/softdevices/s132/3.1.0/s132_nrf52_3.1.0_softdevice.hex /usr/lib/nordic/softdevices/s132/3.1.0.hex
-/usr/lib/nordic/softdevices/s132/3.1.0/s132_nrf52_3.1.0_softdevice.hex /usr/lib/nordic/softdevices/s132/3.hex
+/usr/lib/nordic/softdevices/s132/3.1.0/s132_nrf52_3.1.0_softdevice.hex /usr/lib/nordic/softdevices/s132/3/softdevice.hex
+/usr/lib/nordic/softdevices/s132/3.1.0/s132_nrf52_3.1.0_API /usr/lib/nordic/softdevices/s132/3/API
