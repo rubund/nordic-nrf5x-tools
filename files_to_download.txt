@@ -1,3 +1,0 @@
-nRF5x-MDK-GCC 8.11.1 http://www.nordicsemi.com/eng/nordic/download_resource/58861/17/67566941 nRF5x_MDK_8_11_1_GCC.zip 1386125a66cd853a39232c54ec5096b160f9f17bd64a513643238ac62077cd63
-nRF5x-Command-Line-Tools-Linux64 9.2.1 http://www.nordicsemi.com/eng/nordic/download_resource/58852/19/46491033 nRF5x-Command-Line-Tools_9_2_1_Linux-x86_64.tar f0a26b5f0e0a8938973697041d8463762b227cf5d590c11b41b1215b4de3554f
-nRF5x-Command-Line-Tools-Linux32 9.2.1 http://www.nordicsemi.com/eng/nordic/download_resource/58857/14/4673147 nRF5x-Command-Line-Tools_9_2_1_Linux-i386.tar 35d43c77695cc6ea5a4778011a307a65f276b9ef26361e3115ed1afee3add489
