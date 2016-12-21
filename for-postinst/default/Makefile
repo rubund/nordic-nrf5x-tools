@@ -1,4 +1,4 @@
-PKG_SOURCE_URL:=${DL_MIRROR}/eng/nordic/download_resource/${PKG_IDENTIFIER}
+PKG_SOURCE_URL ?= ${DL_MIRROR}/eng/nordic/download_resource/${PKG_IDENTIFIER}
 
 DL_DIR=/var/cache/nrf5x-${PKG_NAME}-installer
 INSTALL_DIR=/usr/lib/${INS_DIR}
