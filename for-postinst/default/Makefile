@@ -21,6 +21,7 @@ install: all
 	install -d -m0755 $(INSTALL_DIR)
 	@if [ ! -d $(INSTALL_DIR)$(TRG_DIR) ]; then \
 		mv $(UNPACK_DIR) $(INSTALL_DIR)${TRG_DIR}  ;\
+		chown -R root:root $(INSTALL_DIR)${TRG_DIR} ;\
 		find ${INSTALL_DIR}${TRG_DIR}  | sort >> /var/lib/dpkg/info/nrf5x-${PKG_NAME}-installer.list ;\
 	else\
 		echo "\033[0;31m$(INSTALL_DIR)${TRG_DIR} already exists.\033[0m" ; \
