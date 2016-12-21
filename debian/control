@@ -30,6 +30,11 @@ Architecture: all
 Depends: ${misc:Depends}
 Description: BLE softdevice for nRF51 peripheral (v8)
 
+Package: nrf5x-softdevice-s110-7-installer
+Architecture: all
+Depends: ${misc:Depends}
+Description: BLE softdevice for nRF51 peripheral (v7)
+
 Package: nrf5x-softdevice-s132-2-installer
 Architecture: all
 Depends: ${misc:Depends}
