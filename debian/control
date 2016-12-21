@@ -25,6 +25,11 @@ Architecture: all
 Depends: ${misc:Depends}
 Description: Installer for the MDK used by nRF5x chips
 
+Package: nrf5x-softdevice-s110-6-installer
+Architecture: all
+Depends: ${misc:Depends}
+Description: BLE softdevice for nRF51 peripheral (v6)
+
 Package: nrf5x-softdevice-s110-8-installer
 Architecture: all
 Depends: ${misc:Depends}
