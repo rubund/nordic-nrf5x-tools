@@ -20,6 +20,11 @@ Architecture: all
 Depends: ${misc:Depends}
 Description: Installer for the MDK used by nRF5x chips
 
+Package: nrf5x-sdk-6-installer
+Architecture: all
+Depends: ${misc:Depends}
+Description: Installer for the MDK used by nRF5x chips
+
 Package: nrf5x-sdk-12-installer
 Architecture: all
 Depends: ${misc:Depends}
