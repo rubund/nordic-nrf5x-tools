@@ -1,0 +1,2 @@
+for-postinst/default/Makefile usr/share/nrf5x-softdevice-s132-2-installer/
+for-postinst/default/s132_nrf52_2.0.1.zip.sha256 usr/share/nrf5x-softdevice-s132-2-installer/
