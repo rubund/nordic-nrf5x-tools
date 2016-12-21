@@ -4,7 +4,7 @@ set -e
 
 PKG_NAME="mdk-gcc"
 INS_DIR="nordic/"
-TRG_DIR="mdk-gcc"
+TRG_DIR="nrf5-mdk-gcc"
 PKG_IDENTIFIER="58861/17/67566941"
 PKG_SOURCE="nRF5x_MDK_8_11_1_GCC.zip"
 

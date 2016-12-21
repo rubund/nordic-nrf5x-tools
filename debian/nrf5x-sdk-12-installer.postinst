@@ -3,7 +3,7 @@
 set -e
 
 PKG_NAME="sdk-12"
-INS_DIR="nordic/sdk/"
+INS_DIR="nordic/nrf5-sdk/"
 TRG_DIR="12.2.0"
 PKG_IDENTIFIER="54281/51/87281687"
 PKG_SOURCE="nRF5_SDK_12.2.0_f012efa.zip"
