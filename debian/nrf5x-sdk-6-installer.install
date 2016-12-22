@@ -1,2 +1,3 @@
 for-postinst/default/Makefile usr/share/nrf5x-sdk-6-installer/
 for-postinst/default/nrf51_sdk_v6_1_0_b2ec2e6.zip.sha256 usr/share/nrf5x-sdk-6-installer/
+for-postinst/default/nrf51_sdk_v6_1_0_b2ec2e6.zip.patch usr/share/nrf5x-sdk-6-installer/

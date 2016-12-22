@@ -8,6 +8,9 @@ all: $(UNPACK_DIR)/source.properties
 
 install: all
 	$(eval UNPACK_DIR=$(DL_DIR)/extracted)
+	@if [ -f $(DL_DIR)/$(PKG_SOURCE).patch ] ; then \
+		cd $(UNPACK_DIR) && patch -Np1 < $(DL_DIR)/$(PKG_SOURCE).patch ;\
+		fi
 	install -d -m0755 $(DOC_DIR)
 	@if [ -f $(UNPACK_DIR)source.properties ]; then \
 		install -m0644 $(UNPACK_DIR)source.properties $(DOC_DIR)/ ; \

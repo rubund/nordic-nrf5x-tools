@@ -1,0 +1,27 @@
+diff -Naur a/nrf51822/Source/templates/gcc/Makefile.common b/nrf51822/Source/templates/gcc/Makefile.common
+--- a/nrf51822/Source/templates/gcc/Makefile.common	2014-08-29 16:16:12.000000000 +0200
++++ b/nrf51822/Source/templates/gcc/Makefile.common	2016-12-22 01:08:49.258362388 +0100
+@@ -145,7 +145,7 @@
+ ## Program device
+ .PHONY: flash
+ flash: $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).hex
+-	nrfjprog --reset --program $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).hex
++	nrfjprog --reset --program $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).hex -f nrf51 --sectorerase
+ 
+ .PHONY: reset
+ reset:
+@@ -153,4 +153,4 @@
+ 
+ .PHONY: erase
+ erase:
+-	nrfjprog --erase
++	nrfjprog --eraseall -f nrf51
+diff -Naur a/nrf51822/Source/templates/gcc/Makefile.posix b/nrf51822/Source/templates/gcc/Makefile.posix
+--- a/nrf51822/Source/templates/gcc/Makefile.posix	2014-08-29 16:16:12.000000000 +0200
++++ b/nrf51822/Source/templates/gcc/Makefile.posix	2016-12-22 01:03:26.514253110 +0100
+@@ -1,4 +1,4 @@
+-GNU_INSTALL_ROOT := /usr/local/gcc-arm-none-eabi-4_8-2014q1
++GNU_INSTALL_ROOT := /usr
+ GNU_VERSION := 4.8.3
+ GNU_PREFIX := arm-none-eabi
+ 
