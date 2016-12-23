@@ -1,0 +1,11 @@
+diff -Naur a/nrf51822/Source/templates/gcc/Makefile.common b/nrf51822/Source/templates/gcc/Makefile.common
+--- a/nrf51822/Source/templates/gcc/Makefile.common	2016-12-23 21:14:37.335250442 +0100
++++ b/nrf51822/Source/templates/gcc/Makefile.common	2016-12-23 21:15:11.901552834 +0100
+@@ -10,6 +10,7 @@
+ include $(TEMPLATE_PATH)Makefile.windows
+ #else
+ #include $(TEMPLATE_PATH)Makefile.posix
++GNU_INSTALL_ROOT = /usr
+ #endif
+ 
+ ifeq ($(LINKER_SCRIPT),)
