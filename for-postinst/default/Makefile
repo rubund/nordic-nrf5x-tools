@@ -4,7 +4,7 @@ DL_DIR=/var/cache/nrf5x-${PKG_NAME}-installer
 INSTALL_DIR=/usr/lib/${INS_DIR}
 DOC_DIR=/usr/share/doc/nrf5x-${PKG_NAME}
 
-all: $(UNPACK_DIR)/source.properties
+all: $(DL_DIR)/extracted
 
 install: all
 	$(eval UNPACK_DIR=$(DL_DIR)/extracted)
@@ -12,12 +12,6 @@ install: all
 		cd $(UNPACK_DIR) && patch -Np1 < $(DL_DIR)/$(PKG_SOURCE).patch ;\
 		fi
 	install -d -m0755 $(DOC_DIR)
-	@if [ -f $(UNPACK_DIR)source.properties ]; then \
-		install -m0644 $(UNPACK_DIR)source.properties $(DOC_DIR)/ ; \
-        fi
-	@if [ -f $(UNPACK_DIR)NOTICE.txt ]; then \
-		gzip -9 --stdout $(UNPACK_DIR)/NOTICE.txt > $(DOC_DIR)/copyright.gz ; \
-        fi
 	find ${DOC_DIR} | sort >> /var/lib/dpkg/info/nrf5x-${PKG_NAME}-installer.list
 	chmod -R a+rX $(UNPACK_DIR)
 	chmod -R go-w $(UNPACK_DIR)
@@ -31,12 +25,18 @@ install: all
 		exit 1 ; \
 	fi
 
-$(UNPACK_DIR)/source.properties: $(DL_DIR)/$(PKG_SOURCE)
+$(DL_DIR)/extracted: download
 	@if [ "$(findstring .tar,$(PKG_SOURCE))" = ".tar" ] ; then \
 		cd $(DL_DIR) && mkdir -p extracted && cd extracted && tar -xvf $(DL_DIR)/$(PKG_SOURCE) ;\
 	else \
 		cd $(DL_DIR) && mkdir -p extracted && cd extracted && unzip -ou $(DL_DIR)/$(PKG_SOURCE) ; \
 	fi
+
+download:
+	sha256sum -c $(PKG_SOURCE).sha256 || \
+	  (cd $(DL_DIR) && rm -f $(PKG_SOURCE) && \
+		su nobody -s /bin/sh -c "wget -O $(PKG_SOURCE) --continue $(PKG_SOURCE_URL)" && \
+		sha256sum -c $(PKG_SOURCE).sha256 )
 
 $(DL_DIR)/$(PKG_SOURCE):
 	cd $(DL_DIR) && \
@@ -49,4 +49,4 @@ clean:
 distclean: clean
 	-rm -rf -- $(DL_DIR)
 
-.PHONY: install clean
+.PHONY: install clean download
