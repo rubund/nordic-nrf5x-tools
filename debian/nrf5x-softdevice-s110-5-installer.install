@@ -1,0 +1,2 @@
+for-postinst/default/Makefile usr/share/nrf5x-softdevice-s110-5-installer/
+for-postinst/default/s110_nrf51822_5.2.1.zip.sha256 usr/share/nrf5x-softdevice-s110-5-installer/
