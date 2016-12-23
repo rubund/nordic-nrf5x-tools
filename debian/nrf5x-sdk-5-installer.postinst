@@ -24,6 +24,7 @@ case "$1" in
             install -d -m0700 -o nobody -g nogroup /var/cache/nrf5x-"$PKG_NAME"-installer
             cp /usr/share/nrf5x-"$PKG_NAME"-installer/Makefile \
                /usr/share/nrf5x-"$PKG_NAME"-installer/"$PKG_SOURCE".sha256 \
+               /usr/share/nrf5x-"$PKG_NAME"-installer/"$PKG_SOURCE".patch \
                /var/cache/nrf5x-"$PKG_NAME"-installer/
             make -C /var/cache/nrf5x-"$PKG_NAME"-installer/ DL_MIRROR="$RET" PKG_NAME="$PKG_NAME" TRG_DIR="$TRG_DIR" INS_DIR="$INS_DIR" PKG_SOURCE="$PKG_SOURCE" PKG_SOURCE_URL="$PKG_SOURCE_URL" PKG_IDENTIFIER="$PKG_IDENTIFIER" install
 	#fi

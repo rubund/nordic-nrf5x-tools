@@ -1,0 +1,36 @@
+diff -Naur a/nrf51822/Source/templates/gcc/Makefile.common b/nrf51822/Source/templates/gcc/Makefile.common
+--- a/nrf51822/Source/templates/gcc/Makefile.common	2014-03-13 15:16:42.000000000 +0100
++++ b/nrf51822/Source/templates/gcc/Makefile.common	2016-12-23 22:05:17.989729600 +0100
+@@ -10,6 +10,7 @@
+ include $(TEMPLATE_PATH)Makefile.windows
+ #else
+ #include $(TEMPLATE_PATH)Makefile.posix
++GNU_INSTALL_ROOT := /usr
+ #endif
+ 
+ ifeq ($(LINKER_SCRIPT),)
+@@ -57,7 +58,7 @@
+ 
+ # Compiler flags
+ CFLAGS += -mcpu=$(CPU) -mthumb -mabi=aapcs -D$(DEVICE) -D$(BOARD) -D$(TARGET_CHIP) --std=gnu99
+-CFLAGS += -Wall -Werror
++CFLAGS += -Wall
+ CFLAGS += -mfloat-abi=soft
+ 
+ # Assembler flags
+@@ -144,12 +145,12 @@
+ ## Program device
+ .PHONY: flash
+ flash: $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).hex
+-	nrfjprog --reset --program $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).hex
++	nrfjprog --reset --program $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).hex -f nrf51 --sectorerase
+ 
+ .PHONY: reset
+ reset:
+-	nrfjprog --reset
++	nrfjprog --reset -f nrf51
+ 
+ .PHONY: erase
+ erase:
+-	nrfjprog --erase
++	nrfjprog --eraseall -f nrf51
