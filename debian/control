@@ -11,7 +11,7 @@ Depends: ${misc:Depends}
 Description: Installer for the MDK used by nRF5x chips
 
 Package: nrf5x-cmd-line-tools-installer
-Architecture: amd64 i386
+Architecture: amd64
 Depends: ${misc:Depends}
 Description: Installer for nrfjprog and mergehex
 
