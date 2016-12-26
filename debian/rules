@@ -9,6 +9,16 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 CHANGELOG_DATE ?= $(shell date -d "`dpkg-parsechangelog --show-field Date`" +"%d %B %Y")
 
+VERSION_SUFFIX_RAW := $(shell dpkg-parsechangelog --show-field Distribution)
+
+ifeq ($(VERSION_SUFFIX_RAW),unstable)
+ VERSION_SUFFIX :=
+else ifeq ($(VERSION_SUFFIX_RAW),experimental)
+ VERSION_SUFFIX :=
+else
+ VERSION_SUFFIX := ~$(VERSION_SUFFIX_RAW)
+endif
+
 MDK_GCC_VERSION 			= 8.11.1
 CMD_LINE_TOOLS_VERSION 		= 9.2.1
 S110_5_VERSION 		= 5.2.1
@@ -35,21 +45,21 @@ override_dh_auto_clean:
 	dh_auto_clean
 
 override_dh_gencontrol:
-	dh_gencontrol -pnrf5x-mdk-gcc-installer -- -v$(MDK_GCC_VERSION)
-	dh_gencontrol -pnrf5x-cmd-line-tools-installer -- -v$(CMD_LINE_TOOLS_VERSION)
-	dh_gencontrol -pnrf5x-softdevice-s110-5-installer -- -v$(S110_5_VERSION)
-	dh_gencontrol -pnrf5x-softdevice-s110-6-installer -- -v$(S110_6_VERSION)
-	dh_gencontrol -pnrf5x-softdevice-s110-7-installer -- -v$(S110_7_VERSION)
-	dh_gencontrol -pnrf5x-softdevice-s110-8-installer -- -v$(S110_8_VERSION)
-	dh_gencontrol -pnrf5x-softdevice-s130-2-installer -- -v$(S130_2_VERSION)
-	dh_gencontrol -pnrf5x-softdevice-s132-2-installer -- -v$(S132_2_VERSION)
-	dh_gencontrol -pnrf5x-softdevice-s132-3-installer -- -v$(S132_3_VERSION)
-	dh_gencontrol -pnrf5x-softdevice-s132-4-installer -- -v$(S132_4_VERSION)
-	dh_gencontrol -pnrf5x-softdevice-s132-5-installer -- -v$(S132_5_VERSION)
-	dh_gencontrol -pnrf5x-sdk-4-installer -- -v$(SDK_4_VERSION)
-	dh_gencontrol -pnrf5x-sdk-5-installer -- -v$(SDK_5_VERSION)
-	dh_gencontrol -pnrf5x-sdk-6-installer -- -v$(SDK_6_VERSION)
-	dh_gencontrol -pnrf5x-sdk-10-installer -- -v$(SDK_10_VERSION)
-	dh_gencontrol -pnrf5x-sdk-11-installer -- -v$(SDK_11_VERSION)
-	dh_gencontrol -pnrf5x-sdk-12-installer -- -v$(SDK_12_VERSION)
+	dh_gencontrol -pnrf5x-mdk-gcc-installer -- -v$(MDK_GCC_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-cmd-line-tools-installer -- -v$(CMD_LINE_TOOLS_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-softdevice-s110-5-installer -- -v$(S110_5_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-softdevice-s110-6-installer -- -v$(S110_6_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-softdevice-s110-7-installer -- -v$(S110_7_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-softdevice-s110-8-installer -- -v$(S110_8_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-softdevice-s130-2-installer -- -v$(S130_2_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-softdevice-s132-2-installer -- -v$(S132_2_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-softdevice-s132-3-installer -- -v$(S132_3_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-softdevice-s132-4-installer -- -v$(S132_4_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-softdevice-s132-5-installer -- -v$(S132_5_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-sdk-4-installer -- -v$(SDK_4_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-sdk-5-installer -- -v$(SDK_5_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-sdk-6-installer -- -v$(SDK_6_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-sdk-10-installer -- -v$(SDK_10_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-sdk-11-installer -- -v$(SDK_11_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-sdk-12-installer -- -v$(SDK_12_VERSION)$(VERSION_SUFFIX)
 
