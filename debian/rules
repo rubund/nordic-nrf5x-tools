@@ -36,6 +36,7 @@ SDK_6_VERSION 		= 6.1.0.b2ec2e6
 SDK_10_VERSION 		= 10.0.0.dc26b5e
 SDK_11_VERSION 		= 11.0.0.89a8197
 SDK_12_VERSION 		= 12.2.0.f012efa
+SDK_13_VERSION 		= 13.0.0.1~alpha
 
 %:
 	dh $@ 
@@ -62,4 +63,5 @@ override_dh_gencontrol:
 	dh_gencontrol -pnrf5x-sdk-10-installer -- -v$(SDK_10_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrf5x-sdk-11-installer -- -v$(SDK_11_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrf5x-sdk-12-installer -- -v$(SDK_12_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-sdk-13-installer -- -v$(SDK_13_VERSION)$(VERSION_SUFFIX)
 

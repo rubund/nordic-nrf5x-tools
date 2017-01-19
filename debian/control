@@ -45,6 +45,12 @@ Architecture: all
 Depends: ${misc:Depends}
 Description: Installer for the MDK used by nRF5x chips
 
+Package: nrf5x-sdk-13-installer
+Architecture: all
+Depends: ${misc:Depends}
+Description: Installer for the MDK used by nRF5x chips
+ Has Bluetooth 5 support
+
 Package: nrf5x-softdevice-s110-5-installer
 Architecture: all
 Depends: ${misc:Depends}
