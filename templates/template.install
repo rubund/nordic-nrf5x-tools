@@ -1,0 +1,2 @@
+for-postinst/default/Makefile usr/share/nrf5x-==NAME==-installer/
+for-postinst/default/==FILENAME==.zip.sha256 usr/share/nrf5x-==NAME==-installer/

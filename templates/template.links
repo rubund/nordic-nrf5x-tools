@@ -1,0 +1,2 @@
+/usr/lib/nordic/==TYPE==/==VERSION==/==FILENAME==_softdevice.hex /usr/lib/nordic/==TYPE==/==MAJORVERSION/softdevice.hex
+/usr/lib/nordic/==TYPE==/==VERSION==/==FILENAME==_API /usr/lib/nordic/==TYPE==/==MAJORVERSION==/API
