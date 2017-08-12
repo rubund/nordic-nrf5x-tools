@@ -4,9 +4,9 @@ set -e
 
 PKG_NAME="softdevice-s140-5"
 INS_DIR="nordic/softdevices/"
-TRG_DIR="s140/5.0.0-1.alpha/"
-PKG_IDENTIFIER="59062/12/9900555"
-PKG_SOURCE="s140_nrf52840_5.0.0-1.alpha.zip"
+TRG_DIR="s140/5.0.0-3.alpha/"
+PKG_IDENTIFIER="60624/15/15056705/116072"
+PKG_SOURCE="s140_nrf52840_5.0.0-3.alpha.zip"
 
 # Source debconf library.
 #. /usr/share/debconf/confmodule

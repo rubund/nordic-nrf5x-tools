@@ -1,2 +1,2 @@
 for-postinst/default/Makefile usr/share/nrf5x-softdevice-s140-5-installer/
-for-postinst/default/s140_nrf52840_5.0.0-1.alpha.zip.sha256 usr/share/nrf5x-softdevice-s140-5-installer/
+for-postinst/default/s140_nrf52840_5.0.0-3.alpha.zip.sha256 usr/share/nrf5x-softdevice-s140-5-installer/
