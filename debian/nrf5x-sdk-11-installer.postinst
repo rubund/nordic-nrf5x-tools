@@ -12,6 +12,7 @@ PKG_SOURCE="nRF5_SDK_11.0.0_89a8197.zip"
 #. /usr/share/debconf/confmodule
 #db_get google-android-installers/mirror
 RET=http://developer.nordicsemi.com
+PKG_SOURCE_URL=https://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v11.x.x/nRF5_SDK_11.0.0_89a8197.zip
 
 case "$1" in
     configure)
@@ -24,7 +25,7 @@ case "$1" in
             cp /usr/share/nrf5x-"$PKG_NAME"-installer/Makefile \
                /usr/share/nrf5x-"$PKG_NAME"-installer/"$PKG_SOURCE".sha256 \
                /var/cache/nrf5x-"$PKG_NAME"-installer/
-            make -C /var/cache/nrf5x-"$PKG_NAME"-installer/ DL_MIRROR="$RET" PKG_NAME="$PKG_NAME" TRG_DIR="$TRG_DIR" INS_DIR="$INS_DIR" PKG_SOURCE="$PKG_SOURCE" PKG_IDENTIFIER="$PKG_IDENTIFIER" install
+            make -C /var/cache/nrf5x-"$PKG_NAME"-installer/ DL_MIRROR="$RET" PKG_NAME="$PKG_NAME" TRG_DIR="$TRG_DIR" INS_DIR="$INS_DIR" PKG_SOURCE="$PKG_SOURCE" PKG_SOURCE_URL="$PKG_SOURCE_URL" PKG_IDENTIFIER="$PKG_IDENTIFIER" install
 	#fi
     ;;
 
