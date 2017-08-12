@@ -1,17 +1,17 @@
 #!/bin/sh
 
 set -e
-
+#http://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v11.x.x/nRF5_SDK_11.0.0_89a8197.zip
 PKG_NAME="sdk-11"
 INS_DIR="nordic/nrf5-sdk/"
 TRG_DIR="11.0.0"
-PKG_IDENTIFIER="54281/47/32404513"
+PKG_IDENTIFIER="nRF5_SDK/nRF5_SDK_v11.x.x/nRF5_SDK_11.0.0_89a8197.zip"
 PKG_SOURCE="nRF5_SDK_11.0.0_89a8197.zip"
 
 # Source debconf library.
 #. /usr/share/debconf/confmodule
 #db_get google-android-installers/mirror
-RET=http://www.nordicsemi.com
+RET=http://developer.nordicsemi.com
 
 case "$1" in
     configure)
