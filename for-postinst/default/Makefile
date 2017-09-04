@@ -4,6 +4,8 @@ DL_DIR=/var/cache/nrf5x-${PKG_NAME}-installer
 INSTALL_DIR=/usr/lib/${INS_DIR}
 DOC_DIR=/usr/share/doc/nrf5x-${PKG_NAME}
 
+SKIPDIR ?=
+
 all: $(DL_DIR)/extracted
 
 install: all
@@ -17,7 +19,7 @@ install: all
 	chmod -R go-w $(UNPACK_DIR)
 	install -d -m0755 $(INSTALL_DIR)
 	@if [ ! -d $(INSTALL_DIR)$(TRG_DIR) ]; then \
-		mv $(UNPACK_DIR) $(INSTALL_DIR)${TRG_DIR}  ;\
+		mv $(UNPACK_DIR)$(SKIPDIR) $(INSTALL_DIR)${TRG_DIR}  ;\
 		chown -R root:root $(INSTALL_DIR)${TRG_DIR} ;\
 		find ${INSTALL_DIR}${TRG_DIR}  | sort >> /var/lib/dpkg/info/nrf5x-${PKG_NAME}-installer.list ;\
 	else\
