@@ -4,9 +4,9 @@ set -e
 
 PKG_NAME="softdevice-s132-4"
 INS_DIR="nordic/softdevices/"
-TRG_DIR="s132/4.0.0-1.alpha/"
-PKG_IDENTIFIER="58803/3/42241806"
-PKG_SOURCE="s132_nrf52_4.0.0-1.alpha.zip"
+TRG_DIR="s132/4.0.4/"
+PKG_IDENTIFIER="58803/9/11519081/115611"
+PKG_SOURCE="s132_nrf52_4.0.4.zip"
 
 # Source debconf library.
 #. /usr/share/debconf/confmodule
