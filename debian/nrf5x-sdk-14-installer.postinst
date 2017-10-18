@@ -4,9 +4,9 @@ set -e
 
 PKG_NAME="sdk-14"
 INS_DIR="nordic/nrf5-sdk/"
-TRG_DIR="14.0.0"
-PKG_IDENTIFIER="59021/63/99893410/116085"
-PKG_SOURCE="nRF5_SDK_14.0.0_3bcc1f7.zip"
+TRG_DIR="14.1.0"
+PKG_IDENTIFIER="59012/65/32810172/116085"
+PKG_SOURCE="nRF5_SDK_14.1.0_1dda907.zip"
 
 # Source debconf library.
 #. /usr/share/debconf/confmodule
@@ -24,7 +24,7 @@ case "$1" in
             cp /usr/share/nrf5x-"$PKG_NAME"-installer/Makefile \
                /usr/share/nrf5x-"$PKG_NAME"-installer/"$PKG_SOURCE".sha256 \
                /var/cache/nrf5x-"$PKG_NAME"-installer/
-            make -C /var/cache/nrf5x-"$PKG_NAME"-installer/ DL_MIRROR="$RET" PKG_NAME="$PKG_NAME" TRG_DIR="$TRG_DIR" INS_DIR="$INS_DIR" PKG_SOURCE="$PKG_SOURCE" PKG_IDENTIFIER="$PKG_IDENTIFIER" install SKIPDIR=/nRF5_SDK_14.0.0_3bcc1f7
+            make -C /var/cache/nrf5x-"$PKG_NAME"-installer/ DL_MIRROR="$RET" PKG_NAME="$PKG_NAME" TRG_DIR="$TRG_DIR" INS_DIR="$INS_DIR" PKG_SOURCE="$PKG_SOURCE" PKG_IDENTIFIER="$PKG_IDENTIFIER" install SKIPDIR=/nRF5_SDK_14.1.0_1dda907
 	#fi
     ;;
 
