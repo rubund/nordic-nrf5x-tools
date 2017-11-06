@@ -6,8 +6,8 @@ set -e
 PKG_NAME="mdk-gcc"
 INS_DIR="nordic/nrf5-mdk-gcc/"
 TRG_DIR="default"
-PKG_IDENTIFIER="58861/26/12813792/87785"
-PKG_SOURCE="nRF5x_MDK_8_14_1_GCC_BSDLicense.zip"
+PKG_IDENTIFIER="58861/26/12813792/8778"
+PKG_SOURCE="nRF5x_MDK_8_15_0_GCC_BSDLicense.zip"
 
 # Source debconf library.
 #. /usr/share/debconf/confmodule
