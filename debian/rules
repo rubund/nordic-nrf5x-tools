@@ -32,6 +32,7 @@ S132_3_VERSION 		= 3.1.0
 S132_4_VERSION 		= 4.0.5
 S132_5_VERSION 		= 5.0.0.100
 S140_5_VERSION 		= 5.0.0.3~alpha
+S140_6_VERSION 		= 6.0.0.6~alpha
 SDK_4_VERSION 		= 4.4.2.33551
 SDK_5_VERSION 		= 5.2.0.39364
 SDK_6_VERSION 		= 6.1.0.b2ec2e6
@@ -62,6 +63,7 @@ override_dh_gencontrol:
 	dh_gencontrol -pnrf5x-softdevice-s132-4-installer -- -v$(S132_4_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrf5x-softdevice-s132-5-installer -- -v$(S132_5_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrf5x-softdevice-s140-5-installer -- -v$(S140_5_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-softdevice-s140-6-installer -- -v$(S140_6_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrf5x-sdk-4-installer -- -v$(SDK_4_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrf5x-sdk-5-installer -- -v$(SDK_5_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrf5x-sdk-6-installer -- -v$(SDK_6_VERSION)$(VERSION_SUFFIX)
