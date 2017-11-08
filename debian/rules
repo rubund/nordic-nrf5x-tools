@@ -25,6 +25,7 @@ S110_5_VERSION 		= 5.2.1
 S110_6_VERSION 		= 6.2.1
 S110_7_VERSION 		= 7.3.0
 S110_8_VERSION 		= 8.0.0
+S112_5_VERSION 		= 5.1.0
 S130_2_VERSION 		= 2.0.1
 S132_2_VERSION 		= 2.0.1
 S132_3_VERSION 		= 3.1.0
@@ -54,6 +55,7 @@ override_dh_gencontrol:
 	dh_gencontrol -pnrf5x-softdevice-s110-6-installer -- -v$(S110_6_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrf5x-softdevice-s110-7-installer -- -v$(S110_7_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrf5x-softdevice-s110-8-installer -- -v$(S110_8_VERSION)$(VERSION_SUFFIX)
+	dh_gencontrol -pnrf5x-softdevice-s112-5-installer -- -v$(S112_5_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrf5x-softdevice-s130-2-installer -- -v$(S130_2_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrf5x-softdevice-s132-2-installer -- -v$(S132_2_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrf5x-softdevice-s132-3-installer -- -v$(S132_3_VERSION)$(VERSION_SUFFIX)
