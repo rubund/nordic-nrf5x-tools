@@ -11,8 +11,9 @@ Depends: ${misc:Depends}
 Description: Installer for the MDK used by nRF5x chips
 
 Package: nrf5x-cmd-line-tools-installer
-Architecture: amd64
+Architecture: all
 Depends: ${misc:Depends}
+Conflicts: nrfjprog-compatibility
 Description: Installer for nrfjprog and mergehex
 
 Package: nrf5x-sdk-4-installer
@@ -115,3 +116,14 @@ Package: nrf5x-softdevice-s130-2-installer
 Architecture: all
 Depends: ${misc:Depends}
 Description: BLE softdevice for nRF51 (v2)
+
+Package: nrfjprog-python
+Architecture: all
+Depends: ${misc:Depends}, python3
+Description: Simple nrfjprog alternative written in Python
+
+Package: nrfjprog-compatibility
+Architecture: all
+Depends: ${misc:Depends}
+Conflicts: nrf5x-cmd-line-tools-installer
+Description: Symbolic link from nrfjprog to python

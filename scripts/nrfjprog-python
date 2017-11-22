@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+
+import os
+import tempfile
+import argparse
+import sys
+
+
+
+def run_content(content):
+  jlink_exe = "/opt/JLink_Linux_V620i_arm/JLinkExe"
+  f = tempfile.NamedTemporaryFile(delete=False)
+  f.write(content.encode('utf-8'))
+  f.close()
+  os.system("%s %s" % (jlink_exe, f.name))
+  os.system("rm %s" % f.name)
+
+
+# Default
+device_family = "NRF52"
+hexfile = "/home/pi/devel/ask_for_address/device/nRF52840/_build-dut/firmware.hex"
+
+
+
+parser = argparse.ArgumentParser(description='Simple Python alternative for nrfjprog')
+
+parser.add_argument('--program', type=str)
+parser.add_argument('-f','--family', type=str)
+parser.add_argument('--chiperase', action='store_true')
+parser.add_argument('-s','--snr', type=str)
+
+args = parser.parse_args(sys.argv[1:])
+
+
+
+
+
+
+
+if args.chiperase:
+  print("Supposed to erase chip. Not implemented yet")
+
+if args.program != None:
+  hexfile = args.program
+  if args.family != None:
+    device_family = args.family
+  if args.snr != None:
+    serial_no = args.snr
+    print("Supposed to select a specific serial number of Segger debugger")
+  content_program = """si SWD
+device %s
+speed 1000
+w4 4001e504 1
+loadfile %s
+r
+g
+exit
+""" % (device_family, hexfile)
+  run_content(content_program)
+else:
+  print("Missing arguments")
