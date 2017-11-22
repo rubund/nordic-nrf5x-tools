@@ -74,4 +74,5 @@ override_dh_gencontrol:
 	dh_gencontrol -pnrf5x-sdk-14-installer -- -v$(SDK_14_VERSION)$(VERSION_SUFFIX)
 	dh_gencontrol -pnrfjprog-python
 	dh_gencontrol -pnrfjprog-compatibility
+	dh_gencontrol -psegger-jlink-installer
 

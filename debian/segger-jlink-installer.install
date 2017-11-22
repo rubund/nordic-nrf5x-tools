@@ -1,0 +1,2 @@
+scripts/download_segger.py usr/share/segger-jlink-installer/
+for-postinst/default/JLink_Linux_V620i_x86_64.deb.sha256 usr/share/segger-jlink-installer

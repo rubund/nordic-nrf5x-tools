@@ -1,0 +1,52 @@
+#!/bin/sh
+
+set -e
+
+
+# Source debconf library.
+#. /usr/share/debconf/confmodule
+#db_get google-android-installers/mirror
+RET=https://developer.nordicsemi.com
+FILENAME=JLink_Linux_V620i_x86_64.deb
+PKG_SOURCE_URL=https://www.segger.com/downloads/jlink/$FILENAME
+DL_DIR=/var/cache/segger-jlink-installer
+
+case "$1" in
+    configure)
+        #if [ "${DEBCONF_RECONFIGURE}" = "1" ]; then
+        #    db_fset google-android-installers/mirror seen false
+        #    db_input high google-android-installers/mirror || true
+        #    db_go || true
+        #else
+            install -d -m0700 -o nobody -g nogroup $DL_DIR
+
+            PREVDIR=`pwd`
+            cp /usr/share/segger-jlink-installer/$FILENAME.sha256 /var/cache/segger-jlink-installer/$FILENAME.sha256
+            cd $DL_DIR
+            sha256sum -c /var/cache/segger-jlink-installer/$FILENAME.sha256 || (rm -f $FILENAME && su nobody -s /bin/sh -c "/usr/share/segger-jlink-installer/download_segger.py $PKG_SOURCE_URL /var/cache/segger-jlink-installer/$FILENAME" && sha256sum -c $FILENAME.sha256 )
+            cd /var/cache/segger-jlink-installer
+            rm -rf extracted
+            mkdir extracted
+            cd extracted
+            ar x ../$FILENAME
+            mkdir data
+            cd data
+            tar -xf ../data.tar.gz
+            find ./ | sort >> /var/lib/dpkg/info/segger-jlink-installer.list
+            rsync -rvl ./ /
+            cd $PREVDIR
+	#fi
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

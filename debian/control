@@ -117,6 +117,12 @@ Architecture: all
 Depends: ${misc:Depends}
 Description: BLE softdevice for nRF51 (v2)
 
+Package: segger-jlink-installer
+Architecture: amd64
+Depends: ${misc:Depends}, python3-requests, rsync
+Conflicts: jlink
+Description: Installer for JLINK segger software
+
 Package: nrfjprog-python
 Architecture: all
 Depends: ${misc:Depends}, python3
