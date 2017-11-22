@@ -8,11 +8,12 @@ Standards-Version: 3.9.8
 Package: nrf5x-mdk-gcc-installer
 Architecture: all
 Depends: ${misc:Depends}
+Recommends: gcc-arm-none-eabi
 Description: Installer for the MDK used by nRF5x chips
 
 Package: nrf5x-cmd-line-tools-installer
 Architecture: all
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, jlink | segger-jlink-installer
 Conflicts: nrfjprog-compatibility
 Description: Installer for nrfjprog and mergehex
 
@@ -125,7 +126,7 @@ Description: Installer for JLINK segger software
 
 Package: nrfjprog-python
 Architecture: all
-Depends: ${misc:Depends}, python3
+Depends: ${misc:Depends}, python3, jlink | segger-jlink-installer
 Description: Simple nrfjprog alternative written in Python
 
 Package: nrfjprog-compatibility
