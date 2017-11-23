@@ -13,7 +13,8 @@ Description: Installer for the MDK used by nRF5x chips
 
 Package: nrf5x-cmd-line-tools-installer
 Architecture: all
-Depends: ${misc:Depends}, jlink | segger-jlink-installer
+Depends: ${misc:Depends}
+Recommends: jlink | segger-jlink-installer
 Conflicts: nrfjprog-compatibility
 Description: Installer for nrfjprog and mergehex
 
