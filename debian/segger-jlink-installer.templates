@@ -1,0 +1,15 @@
+
+Template: segger/will_show_agreement
+Type: string
+Default: Press enter
+Description: Need to accept agreement:
+ A user agreeement will be presented. You need to accept this one
+ for installing the Segger jlink software.
+
+Template: segger/accept_license
+Type: string
+Default: n
+Description: I accept all the terms of the preceding license agreement.
+ I accept all the terms of the preceding license agreement.
+ .
+ Answer 'y'/'yes' if you accept.

@@ -4,11 +4,14 @@
 import sys
 import requests
 
-if len(sys.argv) != 3:
+if len(sys.argv) != 4:
     print("Missing arguments")
     sys.exit(-1)
 
-r = requests.post(sys.argv[1], data={"accept_license_agreement" : "accepted"})
+if sys.argv[3] == "POST":
+    r = requests.post(sys.argv[1], data={"accept_license_agreement" : "accepted"})
+else:
+    r = requests.get(sys.argv[1])
 
 status_code = r.status_code
 

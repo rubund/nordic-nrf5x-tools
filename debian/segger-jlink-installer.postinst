@@ -23,7 +23,22 @@ case "$1" in
             PREVDIR=`pwd`
             cp /usr/share/segger-jlink-installer/$FILENAME.sha256 /var/cache/segger-jlink-installer/$FILENAME.sha256
             cd $DL_DIR
-            sha256sum -c /var/cache/segger-jlink-installer/$FILENAME.sha256 || (rm -f $FILENAME && su nobody -s /bin/sh -c "/usr/share/segger-jlink-installer/download_segger.py $PKG_SOURCE_URL /var/cache/segger-jlink-installer/$FILENAME" && sha256sum -c $FILENAME.sha256 )
+            rm -f agreement && su nobody -s /bin/sh -c "/usr/share/segger-jlink-installer/download_segger.py $PKG_SOURCE_URL agreement GET"
+            #read -p "You will need to agree with the agreement which will be displayed... PRESS ENTER TO CONTINUE AND VIEW THE AGREEMENT"
+            . /usr/share/debconf/confmodule
+            db_input critical segger/will_show_agreement || true
+            db_go
+            #db_clear segger/will_show_agreement
+            /usr/share/segger-jlink-installer/extract_agreement_segger.py agreement |less
+            db_input critical segger/accept_license || true
+            db_go
+            db_get segger/accept_license
+            echo $RET
+            #db_clear segger/accept_license
+            if [ "$RET" != "y" -a "$RET" != "yes" ] ; then echo "Aborting" ; exit 1 ; fi
+            #read -p "Do you agree with the agreement? (y/N) " agree
+            #echo $agree
+            sha256sum -c /var/cache/segger-jlink-installer/$FILENAME.sha256 || (rm -f $FILENAME && su nobody -s /bin/sh -c "/usr/share/segger-jlink-installer/download_segger.py $PKG_SOURCE_URL /var/cache/segger-jlink-installer/$FILENAME POST" && sha256sum -c $FILENAME.sha256 )
             cd /var/cache/segger-jlink-installer
             rm -rf extracted
             mkdir extracted
